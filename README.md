@@ -92,30 +92,7 @@ curl -X POST https://student-platform-api-dev-73rpnkg6jq-uc.a.run.app/api/v1/enr
 
 ## Database Schema
 
-```
-┌─────────────────┐       ┌─────────────────────┐       ┌─────────────────┐
-│    teachers     │       │       classes       │       │    students     │
-├─────────────────┤       ├─────────────────────┤       ├─────────────────┤
-│ id (PK)         │       │ id (PK)             │       │ id (PK)         │
-│ name            │       │ name                │       │ name            │
-│ email (unique)  │       │ code                │       │ email (unique)  │
-│ department      │       │ semester            │       │ student_id (uq) │
-└────────┬────────┘       │ max_students        │       │ grade_level     │
-         │                │ teacher_id (FK)─────┘       └────────┬────────┘
-         └────────────────┤                                      │
-                          └──────────┬──────────┘                │
-                                     │                           │
-              ┌───────────────────────┐   ┌──────────────────────┴───────┐
-              │ class_prerequisites   │   │       enrollments            │
-              ├───────────────────────┤   ├──────────────────────────────┤
-              │ class_id (PK, FK)     │   │ id (PK)                      │
-              │ prerequisite_id (FK)  │   │ student_id (FK)              │
-              └───────────────────────┘   │ class_id (FK)                │
-                                          │ semester                     │
-                                          │ status (enrolled/completed)  │
-                                          │ grade                        │
-                                          └──────────────────────────────┘
-```
+![Database Schema](docs/database-schema.svg)
 
 ## Project Structure
 

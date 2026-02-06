@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <defs>
+    <style>
+      .table-header { fill: #1e40af; }
+      .table-header-text { fill: white; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .table-body { fill: #f8fafc; }
+      .field-text { fill: #334155; font-family: 'Courier New', monospace; font-size: 11px; }
+      .field-type { fill: #64748b; font-family: 'Courier New', monospace; font-size: 10px; }
+      .pk { fill: #eab308; }
+      .fk { fill: #3b82f6; }
+      .constraint-text { fill: #6b7280; font-family: Arial, sans-serif; font-size: 9px; font-style: italic; }
+      .title { fill: #1e293b; font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; }
+      .subtitle { fill: #64748b; font-family: Arial, sans-serif; font-size: 12px; }
+      .legend-text { fill: #475569; font-family: Arial, sans-serif; font-size: 10px; }
+      .enum-header { fill: #7c3aed; }
+      .enum-body { fill: #f5f3ff; }
+    </style>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <text x="500" y="35" text-anchor="middle" class="title">Student Platform - Database Schema</text>
+  <text x="500" y="55" text-anchor="middle" class="subtitle">PostgreSQL 15 • SQLAlchemy ORM</text>
+
+  <!-- ==================== TEACHERS TABLE ==================== -->
+  <g transform="translate(50, 90)" filter="url(#shadow)">
+    <rect width="180" height="130" rx="6" class="table-body" stroke="#e2e8f0" stroke-width="1"/>
+    <rect width="180" height="32" rx="6" class="table-header"/>
+    <rect y="26" width="180" height="6" class="table-header"/>
+    <text x="90" y="22" text-anchor="middle" class="table-header-text">👨‍🏫 teachers</text>
+    
+    <g transform="translate(10, 48)">
+      <rect x="-2" y="-10" width="36" height="14" rx="2" class="pk"/>
+      <text x="0" y="0" class="field-text">id</text>
+      <text x="100" y="0" class="field-type">SERIAL PK</text>
+    </g>
+    <g transform="translate(10, 68)">
+      <text x="0" y="0" class="field-text">name</text>
+      <text x="100" y="0" class="field-type">VARCHAR(100)</text>
+    </g>
+    <g transform="translate(10, 88)">
+      <text x="0" y="0" class="field-text">email</text>
+      <text x="100" y="0" class="field-type">VARCHAR(100)</text>
+    </g>
+    <g transform="translate(10, 108)">
+      <text x="0" y="0" class="field-text">department</text>
+      <text x="100" y="0" class="field-type">VARCHAR(100)</text>
+    </g>
+    <text x="90" y="125" text-anchor="middle" class="constraint-text">UNIQUE(email)</text>
+  </g>
+
+  <!-- ==================== STUDENTS TABLE ==================== -->
+  <g transform="translate(770, 90)" filter="url(#shadow)">
+    <rect width="180" height="150" rx="6" class="table-body" stroke="#e2e8f0" stroke-width="1"/>
+    <rect width="180" height="32" rx="6" class="table-header"/>
+    <rect y="26" width="180" height="6" class="table-header"/>
+    <text x="90" y="22" text-anchor="middle" class="table-header-text">👨‍🎓 students</text>
+    
+    <g transform="translate(10, 48)">
+      <rect x="-2" y="-10" width="36" height="14" rx="2" class="pk"/>
+      <text x="0" y="0" class="field-text">id</text>
+      <text x="100" y="0" class="field-type">SERIAL PK</text>
+    </g>
+    <g transform="translate(10, 68)">
+      <text x="0" y="0" class="field-text">name</text>
+      <text x="100" y="0" class="field-type">VARCHAR(100)</text>
+    </g>
+    <g transform="translate(10, 88)">
+      <text x="0" y="0" class="field-text">email</text>
+      <text x="100" y="0" class="field-type">VARCHAR(100)</text>
+    </g>
+    <g transform="translate(10, 108)">
+      <text x="0" y="0" class="field-text">student_id</text>
+      <text x="100" y="0" class="field-type">VARCHAR(20)</text>
+    </g>
+    <g transform="translate(10, 128)">
+      <text x="0" y="0" class="field-text">grade_level</text>
+      <text x="100" y="0" class="field-type">INTEGER</text>
+    </g>
+    <text x="90" y="145" text-anchor="middle" class="constraint-text">UNIQUE(email, student_id)</text>
+  </g>
+
+  <!-- ==================== CLASSES TABLE ==================== -->
+  <g transform="translate(410, 90)" filter="url(#shadow)">
+    <rect width="180" height="170" rx="6" class="table-body" stroke="#e2e8f0" stroke-width="1"/>
+    <rect width="180" height="32" rx="6" class="table-header"/>
+    <rect y="26" width="180" height="6" class="table-header"/>
+    <text x="90" y="22" text-anchor="middle" class="table-header-text">📚 classes</text>
+    
+    <g transform="translate(10, 48)">
+      <rect x="-2" y="-10" width="36" height="14" rx="2" class="pk"/>
+      <text x="0" y="0" class="field-text">id</text>
+      <text x="100" y="0" class="field-type">SERIAL PK</text>
+    </g>
+    <g transform="translate(10, 68)">
+      <text x="0" y="0" class="field-text">name</text>
+      <text x="100" y="0" class="field-type">VARCHAR(100)</text>
+    </g>
+    <g transform="translate(10, 88)">
+      <text x="0" y="0" class="field-text">code</text>
+      <text x="100" y="0" class="field-type">VARCHAR(20)</text>
+    </g>
+    <g transform="translate(10, 108)">
+      <text x="0" y="0" class="field-text">semester</text>
+      <text x="100" y="0" class="field-type">VARCHAR(20)</text>
+    </g>
+    <g transform="translate(10, 128)">
+      <text x="0" y="0" class="field-text">max_students</text>
+      <text x="100" y="0" class="field-type">INTEGER (30)</text>
+    </g>
+    <g transform="translate(10, 148)">
+      <rect x="-2" y="-10" width="76" height="14" rx="2" class="fk"/>
+      <text x="0" y="0" class="field-text">teacher_id</text>
+      <text x="100" y="0" class="field-type">INTEGER FK</text>
+    </g>
+    <text x="90" y="165" text-anchor="middle" class="constraint-text">UNIQUE(code, semester)</text>
+  </g>
+
+  <!-- ==================== CLASS_PREREQUISITES TABLE ==================== -->
+  <g transform="translate(280, 320)" filter="url(#shadow)">
+    <rect width="200" height="100" rx="6" class="table-body" stroke="#e2e8f0" stroke-width="1"/>
+    <rect width="200" height="32" rx="6" class="table-header"/>
+    <rect y="26" width="200" height="6" class="table-header"/>
+    <text x="100" y="22" text-anchor="middle" class="table-header-text">🔗 class_prerequisites</text>
+    
+    <g transform="translate(10, 48)">
+      <rect x="-2" y="-10" width="60" height="14" rx="2" class="pk"/>
+      <rect x="60" y="-10" width="30" height="14" rx="2" class="fk"/>
+      <text x="0" y="0" class="field-text">class_id</text>
+      <text x="115" y="0" class="field-type">INTEGER PK,FK</text>
+    </g>
+    <g transform="translate(10, 68)">
+      <rect x="-2" y="-10" width="110" height="14" rx="2" class="pk"/>
+      <rect x="110" y="-10" width="30" height="14" rx="2" class="fk"/>
+      <text x="0" y="0" class="field-text">prerequisite_id</text>
+      <text x="115" y="0" class="field-type">INTEGER PK,FK</text>
+    </g>
+    <text x="100" y="92" text-anchor="middle" class="constraint-text">Self-referential → classes</text>
+  </g>
+
+  <!-- ==================== ENROLLMENTS TABLE ==================== -->
+  <g transform="translate(550, 320)" filter="url(#shadow)">
+    <rect width="200" height="180" rx="6" class="table-body" stroke="#e2e8f0" stroke-width="1"/>
+    <rect width="200" height="32" rx="6" class="table-header"/>
+    <rect y="26" width="200" height="6" class="table-header"/>
+    <text x="100" y="22" text-anchor="middle" class="table-header-text">📝 enrollments</text>
+    
+    <g transform="translate(10, 48)">
+      <rect x="-2" y="-10" width="36" height="14" rx="2" class="pk"/>
+      <text x="0" y="0" class="field-text">id</text>
+      <text x="115" y="0" class="field-type">SERIAL PK</text>
+    </g>
+    <g transform="translate(10, 68)">
+      <rect x="-2" y="-10" width="76" height="14" rx="2" class="fk"/>
+      <text x="0" y="0" class="field-text">student_id</text>
+      <text x="115" y="0" class="field-type">INTEGER FK</text>
+    </g>
+    <g transform="translate(10, 88)">
+      <rect x="-2" y="-10" width="60" height="14" rx="2" class="fk"/>
+      <text x="0" y="0" class="field-text">class_id</text>
+      <text x="115" y="0" class="field-type">INTEGER FK</text>
+    </g>
+    <g transform="translate(10, 108)">
+      <text x="0" y="0" class="field-text">semester</text>
+      <text x="115" y="0" class="field-type">VARCHAR(20)</text>
+    </g>
+    <g transform="translate(10, 128)">
+      <text x="0" y="0" class="field-text">status</text>
+      <text x="115" y="0" class="field-type">ENUM</text>
+    </g>
+    <g transform="translate(10, 148)">
+      <text x="0" y="0" class="field-text">grade</text>
+      <text x="115" y="0" class="field-type">VARCHAR(2)</text>
+    </g>
+    <text x="100" y="172" text-anchor="middle" class="constraint-text">UNIQUE(student_id, class_id, semester)</text>
+  </g>
+
+  <!-- ==================== ENUM ==================== -->
+  <g transform="translate(800, 320)" filter="url(#shadow)">
+    <rect width="140" height="95" rx="6" class="enum-body" stroke="#c4b5fd" stroke-width="1"/>
+    <rect width="140" height="28" rx="6" class="enum-header"/>
+    <rect y="22" width="140" height="6" class="enum-header"/>
+    <text x="70" y="20" text-anchor="middle" style="fill: white; font-family: Arial; font-size: 12px; font-weight: bold;">EnrollmentStatus</text>
+    
+    <text x="20" y="48" style="fill: #5b21b6; font-family: 'Courier New'; font-size: 11px;">• ENROLLED</text>
+    <text x="20" y="66" style="fill: #5b21b6; font-family: 'Courier New'; font-size: 11px;">• COMPLETED</text>
+    <text x="20" y="84" style="fill: #5b21b6; font-family: 'Courier New'; font-size: 11px;">• DROPPED</text>
+  </g>
+
+  <!-- ==================== RELATIONSHIPS ==================== -->
+  
+  <!-- Teachers -> Classes (1:N) -->
+  <path d="M 230 155 L 280 155 Q 300 155 300 175 L 300 200 Q 300 220 320 220 L 410 220" 
+        stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow-many)"/>
+  <circle cx="230" cy="155" r="4" fill="#3b82f6"/>
+  
+  <!-- Classes -> Enrollments (1:N) -->
+  <path d="M 500 260 L 500 290 Q 500 305 520 305 L 600 305 L 600 320" 
+        stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow-many)"/>
+  <circle cx="500" cy="260" r="4" fill="#3b82f6"/>
+
+  <!-- Students -> Enrollments (1:N) -->
+  <path d="M 860 240 L 860 290 Q 860 305 840 305 L 700 305 L 700 320" 
+        stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow-many)"/>
+  <circle cx="860" cy="240" r="4" fill="#3b82f6"/>
+
+  <!-- Classes -> Prerequisites (self-ref) -->
+  <path d="M 410 200 L 350 200 Q 330 200 330 220 L 330 300 Q 330 320 350 320 L 380 340 L 280 340" 
+        stroke="#3b82f6" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arrow-many)"/>
+  <circle cx="410" cy="200" r="4" fill="#3b82f6"/>
+
+  <!-- Arrow marker for many side -->
+  <defs>
+    <marker id="arrow-many" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
+      <path d="M0,3 L6,6 L0,9" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+      <path d="M3,3 L9,6 L3,9" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+    </marker>
+  </defs>
+
+  <!-- ==================== LEGEND ==================== -->
+  <g transform="translate(50, 520)">
+    <rect width="900" height="60" rx="6" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="20" y="25" style="fill: #334155; font-family: Arial; font-size: 12px; font-weight: bold;">Legend:</text>
+    
+    <rect x="90" y="12" width="30" height="14" rx="2" class="pk"/>
+    <text x="125" y="23" class="legend-text">Primary Key</text>
+    
+    <rect x="210" y="12" width="30" height="14" rx="2" class="fk"/>
+    <text x="245" y="23" class="legend-text">Foreign Key</text>
+    
+    <circle cx="340" cy="19" r="4" fill="#3b82f6"/>
+    <text x="350" y="23" class="legend-text">One</text>
+    
+    <path d="M 400 19 L 430 19" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-many)"/>
+    <text x="440" y="23" class="legend-text">Many</text>
+    
+    <path d="M 500 19 L 540 19" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="550" y="23" class="legend-text">Self-reference</text>
+
+    <text x="20" y="48" class="legend-text">Business Rules: Max 5 enrollments/semester • Prerequisites must be COMPLETED • Class capacity enforced</text>
+  </g>
+</svg>
